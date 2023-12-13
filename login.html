@@ -6,7 +6,14 @@
     <meta name="keywords" content="Fashi, unica, creative, html" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Fashi | Template</title>
+    <title>TAK</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha384-aE5l9+6vzL7cU3e0Y9fJpoQ2vCBgSvgGd8XPPNGs7e/Xk1CIOZKNlC8ZVoH7zyYq"
+      crossorigin="anonymous"
+    />
 
     <!-- Google Font -->
     <link
@@ -15,6 +22,7 @@
     />
 
     <!-- Css Styles -->
+
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
     <link rel="stylesheet" href="css/themify-icons.css" type="text/css" />
@@ -24,6 +32,19 @@
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css" />
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css" />
     <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <style>
+      .password-input {
+        position: relative;
+      }
+
+      .toggle-password {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 10px; /* Adjust the value based on your preference */
+        cursor: pointer;
+      }
+    </style>
   </head>
 
   <body>
@@ -130,7 +151,13 @@
                 </div>
                 <div class="group-input">
                   <label for="pass">Password *</label>
-                  <input type="text" id="pass" />
+                  <div class="password-input">
+                    <input type="password" id="pass" class="password-field" />
+                    <i
+                      class="toggle-password fa fa-eye"
+                      onclick="togglePasswordVisibility()"
+                    ></i>
+                  </div>
                 </div>
                 <div class="group-input gi-check">
                   <div class="gi-more">
@@ -253,5 +280,21 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+      function togglePasswordVisibility() {
+        var passwordField = document.getElementById("pass");
+        var toggleIcon = document.querySelector(".toggle-password");
+
+        if (passwordField.type === "password") {
+          passwordField.type = "text";
+          toggleIcon.classList.remove("fa-eye");
+          toggleIcon.classList.add("fa-eye-slash");
+        } else {
+          passwordField.type = "password";
+          toggleIcon.classList.remove("fa-eye-slash");
+          toggleIcon.classList.add("fa-eye");
+        }
+      }
+    </script>
   </body>
 </html>
